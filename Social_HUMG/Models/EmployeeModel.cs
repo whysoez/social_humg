@@ -1,6 +1,8 @@
-﻿namespace Social_HUMG.Models
+﻿using Social_HUMG.Common.Model;
+
+namespace Social_HUMG.Models
 {
-    public class EmployeeModel
+    public class EmployeeModel : BaseModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

@@ -7,5 +7,8 @@ namespace Social_HUMG.Services.IServices
     {
         Task<List<EmployeeModel>> GetAllEmployee();
         Task CreateEmployee(EmployeeModel employee);
+        Task<EmployeeModel> GetById(Guid employeeId);
+        Task<bool> UpdateEmployee(EmployeeModel employee);
+        Task<bool> Delete(Guid employeeId);
     }
 }

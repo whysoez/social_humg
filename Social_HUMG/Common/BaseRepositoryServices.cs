@@ -5,7 +5,7 @@ namespace Social_HUMG.Common
 {
     public class BaseRepositoryServices<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
-        private readonly SocialDbContext _context;
+        protected readonly SocialDbContext _context;
         public BaseRepositoryServices(SocialDbContext context)
         {
             _context = context;
@@ -35,9 +35,14 @@ namespace Social_HUMG.Common
             _context.Set<TEntity>().Add(entity);
         }
 
-        public Task SavechangeAsync()
+        public async Task SavechangeAsync()
         {
-            return _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task SetDelete(Guid id)
+        {
+            var result = await _context.Set<TEntity>().FindAsync(id);
         }
 
         public void Update(TEntity entity)

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Learn_tech\\tokenDemo\\Social_HUMG\\Social_HUMG\\Social_HUMG.csproj": {}
+    "D:\\Lucas_Dinh\\back_acerV5\\social_humg\\social_humg\\Social_HUMG\\Social_HUMG.csproj": {}
   },
   "projects": {
-    "E:\\Learn_tech\\tokenDemo\\Social_HUMG\\Social_HUMG\\Social_HUMG.csproj": {
+    "D:\\Lucas_Dinh\\back_acerV5\\social_humg\\social_humg\\Social_HUMG\\Social_HUMG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Learn_tech\\tokenDemo\\Social_HUMG\\Social_HUMG\\Social_HUMG.csproj",
+        "projectUniqueName": "D:\\Lucas_Dinh\\back_acerV5\\social_humg\\social_humg\\Social_HUMG\\Social_HUMG.csproj",
         "projectName": "Social_HUMG",
-        "projectPath": "E:\\Learn_tech\\tokenDemo\\Social_HUMG\\Social_HUMG\\Social_HUMG.csproj",
-        "packagesPath": "C:\\Users\\hungh\\.nuget\\packages\\",
-        "outputPath": "E:\\Learn_tech\\tokenDemo\\Social_HUMG\\Social_HUMG\\obj\\",
+        "projectPath": "D:\\Lucas_Dinh\\back_acerV5\\social_humg\\social_humg\\Social_HUMG\\Social_HUMG.csproj",
+        "packagesPath": "C:\\Users\\lucas.dinh\\.nuget\\packages\\",
+        "outputPath": "D:\\Lucas_Dinh\\back_acerV5\\social_humg\\social_humg\\Social_HUMG\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hungh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lucas.dinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -90,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,12 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Social_HUMG.Common.Entity;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Social_HUMG.Data.Entities
 {
-    public class EmployeeEntity
+    public class EmployeeEntity : BaseEntity
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
+        [Column("description")]
         public string Description { get; set; }
+        [Column("phone")]
         public string Phone {  get; set; }
     }
 }

@@ -14,6 +14,14 @@ namespace Social_HUMG.Controllers
         {
             _employeeServices = employeeServices;
         }
+
+        [HttpPost()]
+        [Route("getbyid")]
+        public async Task<EmployeeModel> GetById(Guid id)
+        {
+            return await _employeeServices.GetById(id);
+        }
+
         [HttpGet()]
         [Route("getallemployee")]
         public async Task<List<EmployeeModel>> GetAllEmployees()

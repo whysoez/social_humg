@@ -1,23 +1,32 @@
-﻿using Social_HUMG.Data.Entities;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Social_HUMG.Common;
+using Social_HUMG.Data;
+using Social_HUMG.Data.Entities;
 using Social_HUMG.Repository.IReprositoryServives;
 
 namespace Social_HUMG.Repository.RepositoryServices
 {
-    public class EmployeeRepositoryServices : IEmployeeRepositoryServices
+    public class EmployeeRepositoryServices : BaseRepositoryServices<EmployeeEntity>, IEmployeeRepositoryServices
     {
+        private readonly ILogger<EmployeeRepositoryServices> _logger;
+        public EmployeeRepositoryServices(SocialDbContext context, ILogger<EmployeeRepositoryServices> logger) : base(context)
+        {
+            _logger = logger;
+        }
+
         public void Delete(EmployeeEntity entity)
         {
-            throw new NotImplementedException();
+            base.Delete(entity);
         }
 
-        public Task<List<EmployeeEntity>> GetAllAsync()
+        public async Task<List<EmployeeEntity>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await base.GetAllAsync();
         }
 
-        public Task<EmployeeEntity?> GetByIdAsync(Guid id)
+        public async Task<EmployeeEntity?> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await base.GetByIdAsync(id);
         }
 
         public IQueryable<EmployeeEntity> GetQueryable()
@@ -27,17 +36,25 @@ namespace Social_HUMG.Repository.RepositoryServices
 
         public void Insert(EmployeeEntity entity)
         {
-            throw new NotImplementedException();
+            base.Insert(entity);
         }
 
-        public Task SavechangeAsync()
+        public async Task SavechangeAsync()
         {
-            throw new NotImplementedException();
+             await base.SavechangeAsync();
         }
 
         public void Update(EmployeeEntity entity)
         {
-            throw new NotImplementedException();
+            base.Update(entity);
+        }
+
+        public async Task SetDelete(Guid id)
+        {
+            var result = await base.GetByIdAsync(id);
+            result.Delete = true;
+            base.Update(result);
+            await base.SavechangeAsync();
         }
     }
 }

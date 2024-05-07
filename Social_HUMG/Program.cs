@@ -1,6 +1,7 @@
 using AutoMapper;
 using Social_HUMG.Common;
 using Social_HUMG.Data;
+using Social_HUMG.DI;
 using Social_HUMG.Repository.IReprositoryServives;
 using Social_HUMG.Repository.RepositoryServices;
 using Social_HUMG.Services.IServices;
@@ -22,7 +23,13 @@ builder.Services.AddDbContext<SocialDbContext>(options =>
     builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepositoryServices<>));
 });
 builder.Services.AddScoped<IEmployeeRepositoryServices, EmployeeRepositoryServices>();
+builder.Services.AddScoped<IGroupRepositoryServices, GroupRepositoryServices>();
+builder.Services.AddScoped<IPostRepositoryServices, PostRepositoryServices>();
 builder.Services.AddScoped<IEmployeeServices, EmployeeServices>();
+builder.Services.AddScoped<IGroupServices, GroupServices>();
+builder.Services.AddScoped<IPostServices, PostServices>();
+//builder.Services.AddMyDenpendencyRepositoryServicesGroup()
+//    .AddMyDenpendencyServicesGroup();
 
 var app = builder.Build();
 
