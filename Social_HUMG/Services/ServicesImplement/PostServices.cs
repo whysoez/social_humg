@@ -47,7 +47,7 @@ namespace Social_HUMG.Services.ServicesImplement
         {
             var listPost = await _postRepositoryServices.GetListPostByGroup(groupId);
             var listPostModel = _mapper.Map<List<PostModel>>(listPost);
-            var groupPost = listPostModel.GroupBy(x => x.GroupId).Select(x => new PostDto() { Posts =  x.OrderBy(a => a.CreatedDate).ToList() } );
+            var groupPost = listPostModel.GroupBy(x => x.PostParentId).Select(x => new PostDto() { Posts =  x.OrderBy(a => a.CreatedDate).ToList() } );
             return groupPost.ToList();
         }
 

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Social_HUMG.Models;
 using Social_HUMG.Services.IServices;
+using Social_HUMG.SignalR;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,10 +13,11 @@ namespace Social_HUMG.Controllers
     public class PostController : ControllerBase
     {
         private readonly IPostServices _postServices;
-
-        public PostController(IPostServices postServices)
+        private readonly IHubContext<SignalrHub, IHubClient> _signalrHub;
+        public PostController(IPostServices postServices, IHubContext<SignalrHub, IHubClient> signalrHub)
         {
             _postServices = postServices;
+            _signalrHub = signalrHub;
         }
 
         // GET: api/<GroupController>
@@ -29,7 +32,9 @@ namespace Social_HUMG.Controllers
         [Route("getlistpostbygroup")]
         public async Task<List<PostDto>> GetListPostByGroup(Guid id)
         {
-            return await _postServices.GetListPostByGroup(id);
+            var result = await _postServices.GetListPostByGroup(id);
+            await _signalrHub.Clients.All.PostMessage(result);
+            return result;
         }
 
         // GET api/<GroupController>/5

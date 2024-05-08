@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Social_HUMG.Models;
 using Social_HUMG.Services.IServices;
+using Social_HUMG.SignalR;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,10 +13,11 @@ namespace Social_HUMG.Controllers
     public class GroupController : ControllerBase
     {
         private readonly IGroupServices _groupServices;
-
-        public GroupController(IGroupServices groupServices)
+        private readonly IHubContext<SignalrHub, IHubClient> _signalrHub;
+        public GroupController(IGroupServices groupServices, IHubContext<SignalrHub, IHubClient> signalrHub)
         {
             _groupServices = groupServices;
+            _signalrHub = signalrHub;
         }
 
         // GET: api/<GroupController>
