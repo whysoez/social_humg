@@ -14,12 +14,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddCors(o => o.AddPolicy("CorsPolicy", b =>
-{
-    b.AllowAnyMethod()
-    .AllowAnyHeader()
-    .AllowAnyOrigin();
-}));
+//builder.Services.AddCors(o => o.AddPolicy("CorsPolicy", b =>
+//{
+//    b.AllowAnyMethod()
+//    .AllowAnyHeader()
+//    .AllowAnyOrigin();
+//}));
 builder.Services.AddSignalR(options => { options.KeepAliveInterval = TimeSpan.FromSeconds(5); }).AddMessagePackProtocol();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -50,7 +50,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("CorsPolicy");
+//app.UseCors("CorsPolicy");
 app.UseRouting();
 app.UseEndpoints(enpoints => enpoints.MapHub<SignalrHub>("/signalr"));
 
